@@ -55,26 +55,30 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
   .then(response => response.json()) //turned the url data into js object
   .then((jsonData) => {
     let usdprice = Math.round(jsonData.bpi["USD"].rate_float * 100) / 100;
-    let eurprice = Math.round(jsonData.bpi["EUR"].rate_float * 100) / 100;
-    let gbpprice = Math.round(jsonData.bpi["GBP"].rate_float * 100) / 100;
     const currentPrice = document.createElement('div');
     const usdPrice = document.createElement('div');
-    // const eurPrice = document.createElement('div');
-    // const gbpPrice = document.createElement('div');
+  
     usdprice = usdprice.toString();
     usdprice = usdprice[0] + ',' + usdprice.slice(1);
     currentPrice.innerHTML = `$${usdprice}`;
-    // eurprice = eurprice.toString();
+ 
+    $('#current').append(currentPrice);
+  
+    
+  })
+
+
+  // let eurprice = Math.round(jsonData.bpi["EUR"].rate_float * 100) / 100;
+  // let gbpprice = Math.round(jsonData.bpi["GBP"].rate_float * 100) / 100;
+    // const eurPrice = document.createElement('div');
+    // const gbpPrice = document.createElement('div');
+     // eurprice = eurprice.toString();
     // eurprice = eurprice[0] + ',' + eurprice.slice(1);
     // eurPrice.innerHTML = `$${eurprice}`;eurprice = eurprice.toString();
     // gbpprice = gbpprice.toString();
     // gbpprice = gbpprice[0] + ',' + gbpprice.slice(1);
     // gbpPrice.innerHTML = `$${gbpprice}`;
-    $('#current').append(currentPrice);
-    // $('#usd').append(usdPrice);
+  // $('#usd').append(usdPrice);
     // $('#eur').append(eurPrice);
     // $('#gbp').append(gbpPrice);
-    
-  })
-
 
