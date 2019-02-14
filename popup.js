@@ -1,7 +1,4 @@
 
-
-
-
 fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
   .then(response => response.json()) //turned the url data into js object
   .then((jsonData) => { 
@@ -12,7 +9,7 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
     function pChangeFunc(current, first) {
       let difference = first - current;
       let change = ((difference / first) * 100).toFixed(2) + '%'
-      return `${change}`
+      return `${change}`;
     }
 
     function vChangeFunc(current, first) {
@@ -22,10 +19,10 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
     const vchange = vChangeFunc(currentDay, firstDay);
     const pchange = pChangeFunc(firstDay, currentDay);
 
-    const valueChange = document.createElement('div')
-    valueChange.innerHTML = `${vchange}`
-    valueChange.id = "value"
-    document.body.appendChild(valueChange)
+    const valueChange = document.createElement('div');
+    valueChange.innerHTML = `${vchange}`;
+    valueChange.id = "valueChanged";
+    $('#value').append(valueChange);
 
     if (Math.sign(vchange)=== 1) {
       valueChange.style.color = 'green';
@@ -35,8 +32,8 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
 
     const percentChange = document.createElement('div')
     percentChange.innerHTML = `${pchange}`
-    percentChange.id = "percent"
-    document.body.appendChild(percentChange)
+    percentChange.id = "percentChanged"
+    $('#percent').append(percentChange)
 
     if (Math.sign(pchange)=== 1) {
       percentChange.style.color = 'green';
@@ -51,10 +48,10 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
   .then((jsonData) => {
     const price = Math.round(jsonData.bpi["USD"].rate_float * 100) / 100;
     console.log(price);
-    const currentPrice = document.createElement('div')
-    currentPrice.innerHTML = `${price}`
-    currentPrice.id = "currentPrice"
-    document.body.appendChild(currentPrice)
+    const currentPrice = document.createElement('div');
+    currentPrice.innerHTML = `${price}`;
+    currentPrice.id = "currentPrice";
+    $('#current').append(currentPrice);
   })
 
 
