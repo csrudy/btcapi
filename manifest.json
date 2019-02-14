@@ -9,6 +9,7 @@
         "scripts": ["background.js"],
         "persistent": false
     },
+    "icons": { "16": "BC_logo_.png"},
 
     "content_scripts": [
         {

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bitcoin Price Index</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <script src="https://pubnub.github.io/eon/v/eon/1.0.0/eon.js"></script>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="background.js"></script>
     <script src="popup.js"></script>
@@ -16,14 +18,30 @@
         <div class="top">
             <h1>Bitcoin Price Index</h1>
         </div>
+        <hr>
     </header>
     <div class="info"> 
-        <div id="current"></div>
-        <div id="value"></div>
-        <div id="percent"></div>
+        <table>
+            <thead>
+                <th> Current Price</th>
+                <th> 24hr change</th>
+                <th> Percent change</th>
+                
+            </thead>
+            <tbody>
+                <tr> 
+                    <td><div id="current"></div></td>
+                    <td><div id="value"></div></td>
+                    <td><div id="percent"></div></td>
+                </tr>
+            </tbody>
+        </table>
+        
+       
+        
     </div>
-    <button> <a href="https://www.coinbase.com/">Buy BTC</a> </button>
-
+    
+    <p>Powered by CoinDesk</p>
 </form>
 </body>
 
