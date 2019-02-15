@@ -27,6 +27,10 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
       valueChange.style.color = 'red';
       vchange = Math.abs(vchange);
       vchange = `-$${vchange}`
+      if (vchange.length < 7) {
+        vchange = vchange + '0'
+      }
+  
     }
     valueChange.innerHTML = `${vchange}`;
     valueChange.id = "valueChanged";
@@ -43,10 +47,10 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
 
     if (Math.sign(pchange)=== 1) {
       percentChange.style.color = 'green';
-      $('.info').append('<img src ="btcup.gif"></img>')
+      // $('.info').append('<img src ="btcup.gif"></img>')
     } else {
       percentChange.style.color = 'red';
-      $('.info').append('<img src ="btcdown.gif"></img>')
+      // $('.info').append('<img src ="btcdown.gif"></img>')
     }
     
   })
@@ -60,6 +64,10 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
   
     usdprice = usdprice.toString();
     usdprice = usdprice[0] + ',' + usdprice.slice(1);
+    if (usdprice.length < 8) {
+      usdprice = usdprice + '0'
+    }
+
     currentPrice.innerHTML = `$${usdprice}`;
  
     $('#current').append(currentPrice);

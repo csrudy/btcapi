@@ -14,7 +14,7 @@ h1 {
 tr {
     font-family: 'Roboto', sans-serif;
     font-size: .8rem;
-    font-weight: lighter;
+    /* font-weight: 100; */
     color: #aaaaaa;
 
 }
@@ -25,10 +25,11 @@ tr {
 }
 
 
+
+
 body {
     font-family: 'Roboto', sans-serif;
     width: 35em;
-    height: 55em;
 
 }
 
