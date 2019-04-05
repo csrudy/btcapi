@@ -10,6 +10,10 @@ h1 {
     color: #2b2b2b;
     margin: 0 auto;
 }
+hr {
+    size: 10px
+    border: solid 1px #989898;
+}
 
 tr {
     font-family: 'Roboto', sans-serif;
@@ -30,12 +34,13 @@ tr {
 body {
     font-family: 'Roboto', sans-serif;
     width: 35em;
+    height: 50em;
 
 }
 
 #current {
     font-size: 2rem;
-    color: #33b633;
+    color: green;
     padding: 10px;
 }
 

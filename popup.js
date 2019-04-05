@@ -8,8 +8,8 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
 
     function pChangeFunc(current, first) {
       let difference = first - current;
-      let change = ((difference / first) * 100).toFixed(2) + '%'
-      return `${change}`;
+      let change = ((difference / first) * 100).toFixed(2)
+      return change;
     }
 
     function vChangeFunc(current, first) {
@@ -35,22 +35,23 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
     valueChange.innerHTML = `${vchange}`;
     valueChange.id = "valueChanged";
     $('#value').append(valueChange);
-
+    let pchangeSign = ""
     if (Math.sign(pchange)===1) {
-      pchange = `+${pchange}`
-    }
+      pchangeSign = "+";
+    } 
+
 
     const percentChange = document.createElement('div')
-    percentChange.innerHTML = `${pchange}`
+    percentChange.innerHTML = `${pchangeSign}${pchange}%`
     percentChange.id = "percentChanged"
     $('#percent').append(percentChange)
 
     if (Math.sign(pchange)=== 1) {
       percentChange.style.color = 'green';
-      // $('.info').append('<img src ="btcup.gif"></img>')
+      $('.info').append('<img src ="btcup.gif"></img>')
     } else {
       percentChange.style.color = 'red';
-      // $('.info').append('<img src ="btcdown.gif"></img>')
+      $('.info').append('<img src ="btcdown.gif"></img>')
     }
     
   })
