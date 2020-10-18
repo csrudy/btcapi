@@ -59,17 +59,12 @@ fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
   fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
   .then(response => response.json()) //turned the url data into js object
   .then((jsonData) => {
-    let usdprice = Math.round(jsonData.bpi["USD"].rate_float * 100) / 100;
+    debugger;
+    const usdprice = numeral(Math.round(jsonData.bpi["USD"].rate_float * 100) / 100).format('$0,0.00');
     const currentPrice = document.createElement('div');
     const usdPrice = document.createElement('div');
-  
-    usdprice = usdprice.toString();
-    usdprice = usdprice[0] + ',' + usdprice.slice(1);
-    if (usdprice.length < 8) {
-      usdprice = usdprice + '0'
-    }
 
-    currentPrice.innerHTML = `$${usdprice}`;
+    currentPrice.innerHTML = usdprice;
  
     $('#current').append(currentPrice);
   
